@@ -1,0 +1,65 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "DESKTOP-F02TINO",
+    "children" : [ {
+      "name" : "10916-MainThread",
+      "children" : [ {
+        "name" : "test_app3",
+        "uid" : "24c7d6d8d039353",
+        "parentUid" : "8195b544a0f07690231fd6654eeb1a52",
+        "status" : "passed",
+        "time" : {
+          "start" : 1615797829372,
+          "stop" : 1615797829373,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_app4",
+        "uid" : "931f40eaf0e565e9",
+        "parentUid" : "8195b544a0f07690231fd6654eeb1a52",
+        "status" : "passed",
+        "time" : {
+          "start" : 1615797850691,
+          "stop" : 1615797850691,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "8195b544a0f07690231fd6654eeb1a52"
+    }, {
+      "name" : "14904-MainThread",
+      "children" : [ {
+        "name" : "test_app2",
+        "uid" : "738db8f286a9359b",
+        "parentUid" : "c7ea164f4c8736ae2e08928e38454345",
+        "status" : "passed",
+        "time" : {
+          "start" : 1615797847009,
+          "stop" : 1615797847009,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_app1",
+        "uid" : "3298fff4f36ed455",
+        "parentUid" : "c7ea164f4c8736ae2e08928e38454345",
+        "status" : "passed",
+        "time" : {
+          "start" : 1615797828087,
+          "stop" : 1615797828087,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c7ea164f4c8736ae2e08928e38454345"
+    } ],
+    "uid" : "a67ab8729eca4ccfaa1027ed8afe3f88"
+  } ]
+}

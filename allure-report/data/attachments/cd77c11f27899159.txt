@@ -1,0 +1,3 @@
+[32mINFO    [0m selenium.webdriver.remote.remote_connection:remote_connection.py:117 Could not connect to port 4725 on host localhost
+[32mINFO    [0m selenium.webdriver.remote.remote_connection:remote_connection.py:136 Could not get IP address for host: localhost
+[32mINFO    [0m root:test_app2.py:16 test_app4

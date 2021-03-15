@@ -1,0 +1,17 @@
+2021-03-15 16:55:32 test_git1.py [line:23] INFO>test_git1
+2021-03-15 16:56:17 test_git1.py [line:29] INFO>test_api2
+2021-03-15 16:56:17 test_git1.py [line:23] INFO>test_api1
+2021-03-15 16:56:17 test_git1.py [line:35] INFO>test_api3
+2021-03-15 16:56:25 test_git1.py [line:23] INFO>test_api1
+2021-03-15 16:57:07 test_git1.py [line:29] INFO>test_git2
+2021-03-15 16:57:07 test_git1.py [line:23] INFO>test_git1
+2021-03-15 16:57:07 test_git1.py [line:35] INFO>test_git3
+2021-03-15 18:31:58 test_git1.py [line:35] INFO>test_git3
+2021-03-15 18:31:58 test_git1.py [line:29] INFO>test_git2
+2021-03-15 18:31:58 test_git1.py [line:23] INFO>test_git1
+2021-03-15 18:32:26 test_git1.py [line:23] INFO>test_git1
+2021-03-15 18:32:26 test_git1.py [line:29] INFO>test_git2
+2021-03-15 18:32:26 test_git1.py [line:35] INFO>test_git3
+2021-03-15 18:35:17 test_git1.py [line:23] INFO>test_git1
+2021-03-15 18:35:17 test_git1.py [line:29] INFO>test_git2
+2021-03-15 18:35:17 test_git1.py [line:35] INFO>test_git3

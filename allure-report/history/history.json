@@ -1,0 +1,82 @@
+{
+  "ea50748d9284cb4d20525eb317103db2" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3298fff4f36ed455",
+      "reportUrl" : "http://192.168.190.128:8081/job/test_app/1/allure/#testresult/3298fff4f36ed455",
+      "status" : "passed",
+      "time" : {
+        "start" : 1615797828087,
+        "stop" : 1615797828087,
+        "duration" : 0
+      }
+    } ]
+  },
+  "3c3427ab2bd0fc3da7cdcc38c2ef9d46" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "931f40eaf0e565e9",
+      "reportUrl" : "http://192.168.190.128:8081/job/test_app/1/allure/#testresult/931f40eaf0e565e9",
+      "status" : "passed",
+      "time" : {
+        "start" : 1615797850691,
+        "stop" : 1615797850691,
+        "duration" : 0
+      }
+    } ]
+  },
+  "82dbcf50576f71b419732f7dc47cc77a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "738db8f286a9359b",
+      "reportUrl" : "http://192.168.190.128:8081/job/test_app/1/allure/#testresult/738db8f286a9359b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1615797847009,
+        "stop" : 1615797847009,
+        "duration" : 0
+      }
+    } ]
+  },
+  "4303e0d9c882f58c318071363ab4dc6a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "24c7d6d8d039353",
+      "reportUrl" : "http://192.168.190.128:8081/job/test_app/1/allure/#testresult/24c7d6d8d039353",
+      "status" : "passed",
+      "time" : {
+        "start" : 1615797829372,
+        "stop" : 1615797829373,
+        "duration" : 1
+      }
+    } ]
+  }
+}

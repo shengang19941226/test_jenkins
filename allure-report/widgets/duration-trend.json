@@ -1,0 +1,8 @@
+[ {
+  "buildOrder" : 1,
+  "reportUrl" : "http://192.168.190.128:8081/job/test_app/1/allure",
+  "reportName" : "AllureReport",
+  "data" : {
+    "duration" : 22604
+  }
+} ]

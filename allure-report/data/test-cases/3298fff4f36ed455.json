@@ -1,0 +1,68 @@
+{
+  "uid" : "3298fff4f36ed455",
+  "name" : "test_app1",
+  "fullName" : "test_app1.TestApp#test_app1",
+  "historyId" : "ea50748d9284cb4d20525eb317103db2",
+  "time" : {
+    "start" : 1615797828087,
+    "stop" : 1615797828087,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "80ffd5f8ff4657d3",
+      "name" : "log",
+      "source" : "80ffd5f8ff4657d3.txt",
+      "type" : "text/plain",
+      "size" : 316
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "test_app1"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestApp"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-F02TINO"
+  }, {
+    "name" : "thread",
+    "value" : "14904-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_app1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3298fff4f36ed455.json",
+  "parameterValues" : [ ]
+}
