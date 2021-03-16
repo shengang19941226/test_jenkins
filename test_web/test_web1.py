@@ -27,4 +27,4 @@ class TestWeb:
         logger.info('test_web4')
 
 if __name__ == '__main__':
-    pytest.main(['test_web1.py','-sq','-n','4'])
+    pytest.main(['test_usehadless1.py','-sq','-n','4'])

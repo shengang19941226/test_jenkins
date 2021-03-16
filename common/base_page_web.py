@@ -1,3 +1,4 @@
+import configparser
 import json,os
 import time
 import yaml
@@ -9,6 +10,7 @@ from selenium.common.exceptions import *
 from selenium import webdriver
 from common.log_main import logger
 from common.black_handle import black_handle
+from selenium.webdriver.chrome.options import Options
 
 POLL_FREQUENCY = 0.5
 TIMEOUT = 30
@@ -17,17 +19,30 @@ class BasePage:
     _sleep = 1
     _now_time = ''
 
-    def __init__(self,driver:WebDriver=None,url='',types='',dcs=''):
-            '''进入debug模式
+    def __init__(self,driver:WebDriver=None,url='',types='',dcs='',userhadless=None):
+            '''
+            进入debug模式：
            1、终端进入chrome.exe目录/已经配置环境变量
            2、chrome --remote-debugging-port=9222
            3、打开浏览器进入你想debug的页面，后面就会直接在这个页面进行操作
+           dcs=hub启动分布式运行，userhadless赋值true启动无界面模式
            '''
+            try:
+                using_headless = os.environ['using_headless']  # 尝试获取环境变量
+                print(f'using_headless配置了环境变量:{using_headless}')
+            except KeyError:  # 获取失败后，赋值
+                using_headless = userhadless
+                print(f'没有配置环境变量，userhadless:{using_headless}')
+            chrome_options = Options()
+            if using_headless is not None and using_headless.lower() == 'true':
+                print(f'无界面方式运行:{using_headless.lower()}')
+                chrome_options.add_argument('--headless')  # 配置--参数后，，chrome运行会读取这个参数
             if dcs == 'hub':
                 hub_url = 'http://192.168.31.136:12355/wd/hub'  # 设置hub主机
                 capability = DesiredCapabilities.CHROME.copy()  # 设置浏览器，使用copy不会改变原理的东西
                 self._driver = webdriver.Remote(desired_capabilities=capability,
-                                               command_executor=hub_url)
+                                               command_executor=hub_url,
+                                                options=chrome_options)
             else:
                 if types == 'debug':
                     chrome_args = webdriver.ChromeOptions()
@@ -35,7 +50,7 @@ class BasePage:
                     self._driver = webdriver.Chrome(options=chrome_args)
                 else:
                     if driver is None:
-                        self._driver = webdriver.Chrome()
+                        self._driver = webdriver.Chrome(options=chrome_options)
                     else:
                         self._driver = driver
                     self.get(url)
@@ -63,6 +78,14 @@ class BasePage:
         except Exception as e:
             print('cookies 写入JSON失败，请检查路径...')
             raise e
+
+    def get_config(self):
+        config = configparser.ConfigParser()
+        print(f'config:{self.config}')
+        config.read(os.path.join(os.environ['HOME'], 'iselenium.ini'))
+        print(f"os.environ['HOME']:{os.environ['HOME']}")
+        print(f"os.path.join:{os.path.join}")
+        return config
 
     def add_cookie(self,path='cookie.json'):
         '''从指定JSON读取cookies，并写入打开的浏览器页面cookie'''
