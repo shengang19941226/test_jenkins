@@ -7,7 +7,7 @@ from common.base_page_web import BasePage
 @allure.feature('测试2')
 class TestDemo:
     def setup_class(self):
-        self.driver = BasePage(dcs='hub')
+        self.driver = BasePage(dcs='hub',userhadless='true')
 
     def setup(self):
         self.driver.get('https://taobao.com')

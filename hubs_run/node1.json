@@ -12,7 +12,7 @@
   "port": -1,
   "register": true,
   "registerCycle": 5000,
-  "hub": "http://192.168.31.136:12355",
+  "hub": "http://192.168.0.4:12355",
   "nodeStatusCheckTimeout": 5000,
   "nodePolling": 5000,
   "role": "node",

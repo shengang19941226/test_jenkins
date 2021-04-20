@@ -31,7 +31,7 @@ class TestApi:
     @allure.story('用例3')
     def test_api3(self):
         res = self.api.send(self.req).json()
-        pytest.assume(res['highStock_moreThan'] == 7)
+        pytest.assume(res['highStock_moreThan'] == 6)
         logger.info('test_api3')
 
 

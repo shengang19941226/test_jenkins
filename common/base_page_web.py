@@ -1,3 +1,4 @@
+#coding=utf-8
 import configparser
 import json,os
 import time
@@ -19,41 +20,52 @@ class BasePage:
     _sleep = 1
     _now_time = ''
 
-    def __init__(self,driver:WebDriver=None,url='',types='',dcs='',userhadless=None):
+    def __init__(self,driver:WebDriver=None,url=None,types=None,dcs=None,userhadless=None):
             '''
-            进入debug模式：
-           1、终端进入chrome.exe目录/已经配置环境变量
-           2、chrome --remote-debugging-port=9222
-           3、打开浏览器进入你想debug的页面，后面就会直接在这个页面进行操作
-           dcs=hub启动分布式运行，userhadless赋值true启动无界面模式
+            一、types=debug进入debu模式：(终端进入chrome.exe目录/已经配置环境变量,chrome --remote-debugging-port=9222)
+            二、非debug模式：
+                A、userhadless:true无界面（或jenkins参数化）[dcs=hub启动分布式运行/非分布式运行，判断是否有driver]
+                B、进入有界面模式[dcs=hub启动分布式运行/非分布式运行，判断是否有driver]
            '''
-            try:
-                using_headless = os.environ['using_headless']  # 尝试获取环境变量
-                print(f'using_headless配置了环境变量:{using_headless}')
-            except KeyError:  # 获取失败后，赋值
-                using_headless = userhadless
-                print(f'没有配置环境变量，userhadless:{using_headless}')
-            chrome_options = Options()
-            if using_headless is not None and using_headless.lower() == 'true':
-                print(f'无界面方式运行:{using_headless.lower()}')
-                chrome_options.add_argument('--headless')  # 配置--参数后，，chrome运行会读取这个参数
-            if dcs == 'hub':
-                hub_url = 'http://192.168.31.136:12355/wd/hub'  # 设置hub主机
-                capability = DesiredCapabilities.CHROME.copy()  # 设置浏览器，使用copy不会改变原理的东西
-                self._driver = webdriver.Remote(desired_capabilities=capability,
-                                               command_executor=hub_url,
-                                                options=chrome_options)
+            if types == 'debug':
+                chrome_args = webdriver.ChromeOptions()
+                chrome_args.debugger_address = '127.0.0.1:9222'
+                self._driver = webdriver.Chrome(options=chrome_args)
             else:
-                if types == 'debug':
-                    chrome_args = webdriver.ChromeOptions()
-                    chrome_args.debugger_address = '127.0.0.1:9222'
-                    self._driver = webdriver.Chrome(options=chrome_args)
-                else:
-                    if driver is None:
-                        self._driver = webdriver.Chrome(options=chrome_options)
-                    else:
-                        self._driver = driver
-                    self.get(url)
+                self._driver = self.is_useinghandless(userhadless=userhadless,dcs=dcs,driver=driver)
+                self.get(url)
+
+
+    def start_chrome_isgrid(self,chrome_options=None,dcs=None,driver=None):
+        '''是否分布式/单个启动'''
+        if dcs == 'hub':
+            # hub_url = 'http://192.168.0.4:12355/wd/hub'  # 设置hub主机
+            hub_url = 'http://192.168.190.128:5001/wd/hub'  # 设置docker-hub主机
+            capability = DesiredCapabilities.CHROME.copy()  # 设置浏览器，使用copy不会改变原理的东西
+            _driver = webdriver.Remote(desired_capabilities=capability,
+                                            command_executor=hub_url,
+                                            options=chrome_options)
+        else:
+            if driver is None:
+                _driver = webdriver.Chrome(options=chrome_options,executable_path='E:\Python3.6.0\chromedriver.exe')
+            else:
+                _driver = driver
+        return _driver
+
+    def is_useinghandless(self,userhadless=None,dcs=None,driver=None):
+        '''是否无/有界面启动'''
+        try:
+            using_headless = os.environ['using_headless']  # 尝试获取环境变量
+        except KeyError:  # 获取失败后，赋值
+            using_headless = userhadless
+        chrome_options = Options()
+        if using_headless is not None and using_headless.lower() == 'true':
+            chrome_options.add_argument('--headless')  # 配置--参数后，，chrome运行会读取这个参数
+            _driver = self.start_chrome_isgrid(chrome_options=chrome_options,dcs=dcs,driver=driver)
+        else:
+            _driver = self.start_chrome_isgrid(chrome_options=chrome_options, dcs=dcs, driver=driver)
+        return _driver
+
 
     def quit(self):
         '''退出浏览器'''
@@ -63,9 +75,9 @@ class BasePage:
         '''刷新浏览器'''
         self._driver.refresh()
 
-    def get(self,url=''):
+    def get(self,url=None):
         '''打开浏览器'''
-        if url != '':
+        if url != None:
             self._driver.get(url)
         else:pass
 
