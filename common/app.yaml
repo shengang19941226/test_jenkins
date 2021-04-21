@@ -17,4 +17,4 @@ skipServerInstallation: true
 avd: Pixel_3a_API_30_x86
 ip: localhost
 port: [4723,4725]
-udid: [127.0.0.1:62001,127.0.0.1:62025]
+udid: [127.0.0.1:7555,127.0.0.1:62001,127.0.0.1:62025]
