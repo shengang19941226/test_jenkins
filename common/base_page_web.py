@@ -40,7 +40,7 @@ class BasePage:
         '''是否分布式/单个启动'''
         if dcs == 'hub':
             # hub_url = 'http://192.168.0.4:12355/wd/hub'  # 设置hub主机
-            hub_url = 'http://192.168.190.128:5001/wd/hub'  # 设置docker-hub主机
+            hub_url = 'http://192.168.190.128:5555/wd/hub'  # 设置docker-hub主机
             capability = DesiredCapabilities.CHROME.copy()  # 设置浏览器，使用copy不会改变原理的东西
             _driver = webdriver.Remote(desired_capabilities=capability,
                                             command_executor=hub_url,
