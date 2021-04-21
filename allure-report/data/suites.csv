@@ -1,5 +1,0 @@
-"Status","Name","Duration in ms","Description"
-"passed","test_app2.TestApp#test_app3","1",""
-"passed","test_app1.TestApp#test_app2","0",""
-"passed","test_app1.TestApp#test_app1","0",""
-"passed","test_app2.TestApp#test_app4","0",""

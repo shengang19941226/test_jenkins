@@ -4,3 +4,4 @@ tmp
 /pytest/
 /test_git/
 /test_python/
+/allure*
